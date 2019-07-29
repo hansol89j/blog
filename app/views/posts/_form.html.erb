@@ -9,7 +9,7 @@
 
   <div class="form-actions">
     <%= f.button :submit %>
-    <%= link_to 'Show'. @post, class: 'btn btn-primary' if @post.persisted? %>
+    <%= link_to 'Show', @post, class: 'btn btn-primary' if @post.persisted? %>
     <%= link_to 'List', posts_path, class: 'btn btn-primary' %>
   </div>
 <% end %>
