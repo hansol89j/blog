@@ -14,9 +14,9 @@
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td>
-          <%= link_to 'Show', post, class: 'btn btn-primary' %>
-          <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary' %>
-          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+          <%= link_to 'Show', (@bulletin.present? ? [post.bulletin, post] : post), class: 'btn btn-primary' %>
+          <%= link_to 'Edit', (@bulletin.present? ? edit_bulletin_post_path(post.bulletin, post) : edit_post_path(post)), class: 'btn btn-primary' %>
+          <%= link_to 'Destroy', (@bulletin.present? ? [post.bulletin, post] : post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
         </td>
       </tr>
     <% end %>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+<%= link_to 'New Post', (@bulletin.present? ? new_bulletin_post_path(@bulletin) : new_post_path), class: 'btn btn-primary' %>
